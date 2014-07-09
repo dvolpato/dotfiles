@@ -34,6 +34,7 @@
 	ls = ls-files
 	log-changed = log --name-status
 	show-changed = show --pretty=\"format:\" --name-only
+	alias = !git config --global -l | grep 'alias.' | cut -d. -f2- 
 
 [push]
 	default = current
