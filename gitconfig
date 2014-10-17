@@ -27,14 +27,18 @@
 	co = checkout
 	st = status
 	dc = diff --cached
+
+	alias = !git config --global -l | grep 'alias.' | cut -d. -f2-
+	codereview = log --decorate -p --reverse
 	log-compact = log --abbrev-commit --decorate=no --pretty=format:"%h%x09%an%x09%ad%x09%s" --date=short
 	log-diff = log --abbrev-commit --decorate -p
+	log-changed = log --name-status
 	lol = log --abbrev-commit --decorate --pretty=oneline --graph
 	lol-all = log --abbrev-commit --decorate --pretty=oneline --graph --all
 	ls = ls-files
-	log-changed = log --name-status
 	show-changed = show --pretty=\"format:\" --name-only
-	alias = !git config --global -l | grep 'alias.' | cut -d. -f2- 
+	unpushed = diff @{u}.. --name-status
+	unpushed-all = log --graph --decorate --pretty=oneline --abbrev-commit --all @{upstream}^..
 
 [push]
 	default = current
