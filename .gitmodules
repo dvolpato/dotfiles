@@ -1,3 +1,6 @@
 [submodule "ext/tmux/tmux-zoom"]
 	path = ext/tmux/tmux-zoom
 	url = git://github.com/jipumarino/tmux-zoom.git
+[submodule "ext/autojump"]
+	path = ext/autojump
+	url = https://github.com/joelthelion/autojump.git
