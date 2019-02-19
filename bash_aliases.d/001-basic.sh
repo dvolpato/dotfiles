@@ -28,7 +28,7 @@ alias ..9='cd ../../../../../../../../..'
 ## Utils
 ##
 ################################################################################
-alias now='date +"%T'
+alias now='date +"%T"'
 alias timestamp='date +%Y%m%d_%H%M%S'
 alias path='echo -e ${PATH//:/\\n}'
 
