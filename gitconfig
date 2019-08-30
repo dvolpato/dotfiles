@@ -11,6 +11,7 @@
 	diff = auto
 	status = auto
 	branch = auto
+	interactive = auto
 
 [pack]
 	threads = 0
