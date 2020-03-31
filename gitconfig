@@ -6,6 +6,10 @@
 #	name = 	<YOUR_NAME>
 #	email = <YOUR_EMAIL>
 
+[core]
+	excludesfile = ~/.gitignore
+	editor = vim
+
 [color]
 	ui = auto
 	diff = auto
@@ -28,7 +32,6 @@
 	co = checkout
 	st = status
 	dc = diff --cached
-
 	alias = !git config --global -l | grep 'alias.' | cut -d. -f2-
 	codereview = log --decorate -p --reverse
 	log-compact = log --abbrev-commit --decorate=no --pretty=format:"%h%x09%an%x09%ad%x09%s" --date=short
@@ -43,3 +46,10 @@
 
 [push]
 	default = current
+
+[fetch]
+	prune = true
+
+[pull]
+	rebase = preserve
+
