@@ -4,6 +4,7 @@
 .DS_Store
 .CFUserTextEncoding
 .localized
+.history
 Desktop.ini
 Thumbs.db
 ?Icon
