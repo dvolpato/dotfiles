@@ -30,9 +30,13 @@
 [alias]
 	br = branch
 	co = checkout
+	cob = checkout -b
+	s = status --short --branch
 	st = status
 	dc = diff --cached
 	alias = !git config --global -l | grep 'alias.' | cut -d. -f2-
+	amend = commit --amend
+	fixup = commit --fixup
 	codereview = log --decorate -p --reverse
 	log-compact = log --abbrev-commit --decorate=no --pretty=format:"%h%x09%an%x09%ad%x09%s" --date=short
 	log-diff = log --abbrev-commit --decorate -p
@@ -40,7 +44,10 @@
 	lol = log --abbrev-commit --decorate --pretty=oneline --graph
 	lol-all = log --abbrev-commit --decorate --pretty=oneline --graph --all
 	ls = ls-files
+	remotes = remote --verbose
 	show-changed = show --pretty=\"format:\" --name-only
+	ver = describe --tags
+	ver = v
 	unpushed = diff @{u}.. --name-status
 	unpushed-all = log --graph --decorate --pretty=oneline --abbrev-commit --all @{upstream}^..
 
