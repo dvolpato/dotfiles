@@ -1,6 +1,15 @@
 #!/bin/zsh
 
-[ -z "$ZSH_CUSTOM" ] && echo "[zsh] Cannot proceed: variable ZSH_CUSTOM not set" && exit 1
+[ -z "$ZSH_CUSTOM" ] && {
+  # try to load from zshrc
+  source ~/.zshrc
+}
+
+# Try once again
+[ -z "$ZSH_CUSTOM" ] && {
+  echo "[zsh] Cannot proceed: variable ZSH_CUSTOM not set"
+  exit 1
+}
 
 echo "[zsh] Remove invalid symlinks from target dir"
 pushd "$ZSH_CUSTOM" &> /dev/null
