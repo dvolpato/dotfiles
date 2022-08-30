@@ -1,8 +1,3 @@
-##
-## tmux
-##
-################################################################################
-
 function tmux-update () { 
     echo "Updating to latest tmux environment...";
     export IFS=",";
@@ -22,4 +17,5 @@ function tmux-update () {
     source ~/.bash_aliases
     echo "...Done"
 }
+
 alias tmup='tmux-update'
