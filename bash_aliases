@@ -10,3 +10,13 @@ if [ -d ~/.bash_aliases.d ]; then
   unset alias_file
 fi
 
+if [ -d ~/.bashrc.d ]; then
+  for rc in ~/.bashrc.d/*.sh; do
+    if [ -x $rc ]; then
+#      echo "Reading bashrc file: $rc"
+      . $rc
+    fi
+  done
+  unset rc
+fi
+

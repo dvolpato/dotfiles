@@ -1,26 +1,8 @@
-##!/bin/bash
 # ~/.bashrc: executed by bash(1) for non-login shells.
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
-# 256 color support
-if [ -e /lib/terminfo/x/xterm-256color ]; then
-  export TERM="xterm-256color"
-else
-  export TERM="xterm-color"
-fi
-
-[ -n "$TMUX" ] && {
-if [ -e /lib/terminfo/s/screen-256color ]; then
-  export TERM="screen-256color"
-else
-  export TERM="screen-color"
-fi
-
-}
-
 # If not running interactively, don't do anything
-#[ -z "$PS1" ] && return
 case $- in
     *i*) ;;
       *) return;;
@@ -54,6 +36,22 @@ if [ -z "${debian_chroot:-}" ] && [ -r /etc/debian_chroot ]; then
 fi
 
 # set a fancy prompt (non-color, unless we know we "want" color)
+
+# 256 color support
+if [ -e /lib/terminfo/x/xterm-256color ]; then
+  export TERM="xterm-256color"
+else
+  export TERM="xterm-color"
+fi
+
+[ -n "$TMUX" ] && {
+  if [ -e /lib/terminfo/s/screen-256color ]; then
+    export TERM="screen-256color"
+  else
+    export TERM="screen-color"
+  fi
+}
+
 case "$TERM" in
     xterm-color|screen-color|*-256color) color_prompt=yes;;
 esac
@@ -102,6 +100,9 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
+# colored GCC warnings and errors
+#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
+
 # some more ls aliases
 alias ll='ls -alF'
 alias la='ls -A'
@@ -129,14 +130,4 @@ if ! shopt -oq posix; then
   elif [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
   fi
-fi
-
-if [ -d ~/.bashrc.d ]; then
-  for rc in ~/.bashrc.d/*.sh; do
-    if [ -x $rc ]; then
-#      echo "Reading bashrc file: $rc"
-      . $rc
-    fi
-  done
-  unset rc
 fi
