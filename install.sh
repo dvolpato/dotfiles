@@ -2,6 +2,8 @@
 
 ./apt.sh
 
+./oh-my-zsh.sh
+
 pushd dotfiles || exit
 ./install.sh
 popd || exit &> /dev/null 
