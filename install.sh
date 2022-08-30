@@ -1,12 +1,11 @@
-#!/bin/sh
+#!/bin/bash
 
 ./apt.sh
 
-pushd dotfiles &> /dev/null
+pushd dotfiles || exit
 ./install.sh
-popd  &> /dev/null
+popd || exit &> /dev/null 
 
-# Needs to be sourced otherwise $ZSH_CUSTOM is not set
-source ./shell-zsh.sh
+./shell-zsh.zsh
 
 ./shell-bash.sh

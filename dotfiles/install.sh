@@ -1,7 +1,7 @@
 #!/bin/bash
 
-exclude_array=(
-  install.sh
+sync_list=(
+  gitconfig
 )
 
 backup_dir=~/.dotfiles_bkp
@@ -25,31 +25,38 @@ array_contains() {
 }
 
 dotfiles_install() {
+  echo "[dotfiles] Installing files"
+  mkdir -p $backup_dir
+
   for f in *; do
-    # Skip files from exclude list
-    $(array_contains exclude_array "$f")
-    local contains=$?
-    if [ $contains -eq 1 ]; then
-      continue;
-    fi
-    
-    mkdir -p $backup_dir
-    
-    
+    # Skip itself
+    [[ "$f" == "install.sh" ]] && continue
+
     target=~/.$f
-    if  [ -e $target ]; then
-      echo $f: making backup
+
+    $(array_contains sync_list "$f")
+    local to_sync=$?
+    if [ $to_sync -eq 1 ]; then
+      echo "- $f: making backup"
+      cp $target $backup_dir/$f.bkp_$timestamp
+      echo "- $f: syncing"
+      meld $f ~/.$f
+
+      continue
+    fi
+
+    if [ -e $target ]; then
+      echo "- $f: making backup"
       mv $target $backup_dir/$f.bkp_$timestamp
       :
-    fi
-    
-      echo $f: installing
+    fi 
+
+    echo "- $f: installing"
     cp -r $f $target
   done
 
-  echo ""
-  echo Installation done
-  echo Backup available at: $backup_dir
+  echo "[dotfiles] Done"
+  echo "[dotfiles] Backup available at: $backup_dir"
 }
 
 dotfiles_install
