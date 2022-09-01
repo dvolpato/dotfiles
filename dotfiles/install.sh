@@ -1,7 +1,7 @@
 #!/bin/bash
 
 sync_list=(
-  gitconfig
+
 )
 
 backup_dir=~/.dotfiles_bkp

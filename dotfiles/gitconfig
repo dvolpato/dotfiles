@@ -1,10 +1,4 @@
-#
-# FILL THE VARIABLES BETWEEN < >
-#
-
-[user]
-#	name = 	<YOUR_NAME>
-#	email = <YOUR_EMAIL>
+; define user settings on ~/.gitconfig.local
 
 [core]
 	excludesfile = ~/.gitignore
@@ -28,7 +22,10 @@
 	decorate = short
 
 [alias]
+	aa = add --all
+	ap = add --patch
 	br = branch
+	ci = commit --verbose
 	co = checkout
 	cob = checkout -b
 	s = status --short --branch
@@ -44,10 +41,12 @@
 	lol = log --abbrev-commit --decorate --pretty=oneline --graph
 	lol-all = log --abbrev-commit --decorate --pretty=oneline --graph --all
 	ls = ls-files
+	pf = pushf
+	pushf = push --force-with-lease
 	remotes = remote --verbose
 	show-changed = show --pretty=\"format:\" --name-only
+	v = ver
 	ver = describe --tags
-	ver = v
 	unpushed = diff @{u}.. --name-status
 	unpushed-all = log --graph --decorate --pretty=oneline --abbrev-commit --all @{upstream}^..
 
@@ -58,7 +57,10 @@
 	prune = true
 
 [pull]
-	rebase = preserve
+	rebase = merges
 
 [url "git@github.com:"]
 	insteadOf = https://github.com/
+
+[include]
+	path = ~/.gitconfig.local
