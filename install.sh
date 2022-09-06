@@ -9,5 +9,7 @@ pushd dotfiles || exit
 popd || exit &> /dev/null 
 
 ./shell-zsh.zsh
-
 ./shell-bash.sh
+
+./nvm.sh
+
