@@ -72,10 +72,14 @@ ZSH_THEME="agnoster"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+	command-not-found
 	direnv
 	docker
 	docker-compose
+	gh
 	git
+	npm
+	nvm
 	sudo
 	tmux
 	ubuntu
@@ -108,3 +112,5 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+zstyle ':omz:plugins:nvm' autoload yes
