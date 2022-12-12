@@ -13,3 +13,5 @@ popd || exit &> /dev/null
 
 ./nvm.sh
 
+./pyenv.sh
+
