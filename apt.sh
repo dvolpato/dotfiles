@@ -2,6 +2,7 @@
 
 APPS="
 fonts-powerline
+make
 meld
 git
 tmux
