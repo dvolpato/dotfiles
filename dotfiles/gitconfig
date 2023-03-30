@@ -25,26 +25,32 @@
 	aa = add --all
 	ap = add --patch
 	br = branch
-	ci = commit --verbose
+	c = commit --verbose
+	ca = commit --verbose
+	cm = commit --message 
+	cam = commit --all --message
+	amend = commit --verbose --amend
+	fixup = commit --fixup
 	co = checkout
 	cob = checkout -b
-	s = status --short --branch
-	st = status
 	dc = diff --cached
 	alias = !git config --global -l | grep 'alias.' | cut -d. -f2-
-	amend = commit --amend
-	fixup = commit --fixup
 	codereview = log --decorate -p --reverse
-	log-compact = log --abbrev-commit --decorate=no --pretty=format:"%h%x09%an%x09%ad%x09%s" --date=short
+	log-compact = log --abbrev-commit --decorate=no --pretty=format:"%C(bold yellow)%h %C(blue)%an %C(bold green)%ad %C(auto)%s" --date=short
 	log-diff = log --abbrev-commit --decorate -p
 	log-changed = log --name-status
-	lol = log --abbrev-commit --decorate --pretty=oneline --graph
-	lol-all = log --abbrev-commit --decorate --pretty=oneline --graph --all
+	lol = log --oneline --graph --decorate
+	lol-all = log --oneline --graph --decorate --all
 	ls = ls-files
 	pf = pushf
 	pushf = push --force-with-lease
 	remotes = remote --verbose
+	s = status --short --branch
+	st = status
 	show-changed = show --pretty=\"format:\" --name-only
+	show-stat = show --stat
+	shc = show-changed
+	shs = show-stat
 	v = ver
 	ver = describe --tags
 	unpushed = diff @{u}.. --name-status
