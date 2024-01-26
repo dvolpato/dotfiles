@@ -98,6 +98,9 @@ plugins=(
 	zsh-tmux-auto-title
 )
 
+# config for nvm plugin
+zstyle ':omz:plugins:nvm' autoload yes
+
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
