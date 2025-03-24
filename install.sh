@@ -1,19 +1,19 @@
 #!/bin/bash
 
-./apt.sh
+./scripts/apt.sh
 
-./oh-my-zsh.sh
+./scripts/oh-my-zsh.sh
 
 pushd dotfiles || exit
 ./install.sh
 popd || exit &> /dev/null 
 
-./fonts.sh
+./scripts/fonts.sh
 
-./shell-zsh.zsh
-./shell-bash.sh
+./scripts/shell-zsh.zsh
+./scripts/shell-bash.sh
 
-./nvm.sh
+./scripts/nvm.sh
 
-./pyenv.sh
+#./scripts/pyenv.sh
 
