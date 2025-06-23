@@ -3,11 +3,13 @@
 APPS="
 fonts-powerline
 make
-meld
 git
 tmux
 zsh
 "
+
+echo "[apt] Updating"
+sudo apt-get -y update
 
 echo "[apt] Installing apps: $APPS"
 
