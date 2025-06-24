@@ -20,5 +20,8 @@ done
 echo "[fonts] Reloading font cache"
 fc-cache -f -v
 
+echo "[fonts] Installing JetBrains Mono"
+bash -c "$(curl -fsSL https://raw.githubusercontent.com/JetBrains/JetBrainsMono/master/install_manual.sh)"
+
 echo ""
 echo "[fonts] Done"
