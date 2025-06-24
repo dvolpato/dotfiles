@@ -35,19 +35,22 @@ git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${USER_ZSH_PATH
 
 echo "[zsh] Remove invalid symlinks from target dir"
 pushd "$ZSH_CUSTOM" &> /dev/null
-for f in *.zsh; do
-  [ ! -L "$f" ] && echo "- Keeping $PWD/$f: not a symlink" && continue
+zsh_files=(*.zsh(N))
+if (( ${#zsh_files} )); then
+  for f in "${zsh_files[@]}"; do
+    [ ! -L "$f" ] && echo "- Keeping $PWD/$f: not a symlink" && continue
 
-  [ -e "$f" ] && {
-    echo "- Keeping $PWD/$f: symlink is not broken"
-    continue
-  }
+    [ -e "$f" ] && {
+      echo "- Keeping $PWD/$f: symlink is not broken"
+      continue
+    }
 
-  # $f is not a symlink and is broken
-  echo "- Removing $PWD/$f: broken symlink"
-  rm $f  
-done
-unset f
+    # $f is a symlink and is broken
+    echo "- Removing $PWD/$f: broken symlink"
+    rm "$f"
+  done
+fi
+unset f zsh_files
 popd &> /dev/null
 
 echo "[zsh] Install new custom scripts as symlinks"
