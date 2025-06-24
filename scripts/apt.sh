@@ -1,6 +1,7 @@
 #!/bin/sh
 
 APPS="
+direnv
 fonts-powerline
 make
 git
